@@ -2,9 +2,9 @@
 *.svg
 .idea
 .ipynb_checkpoints
-/community/assets
-/community/demo
-/community/extra
-/community/hlg
-/community/test
-/pandemic/data
+/code/community/assets
+/code/community/demo
+/code/community/extra
+/code/community/hlg
+/code/community/test
+/code/pandemic/data
