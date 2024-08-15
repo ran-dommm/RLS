@@ -1,4 +1,4 @@
-# DRL urban planning
+# Planning with Simulation
 ![Loading Model Overview](assets/pipeline_v3.png "Model Overview")
 ---
 
