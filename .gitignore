@@ -2,7 +2,6 @@
 *.svg
 .idea
 .ipynb_checkpoints
-/code/community
 /planning-simulation/code/community/assets
 /planning-simulation/code/community/demo
 /planning-simulation/code/community/extra
