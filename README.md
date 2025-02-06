@@ -1,12 +1,12 @@
-# Planning with Simulation
+# Reinforcement Learning with Adaptive Reward Modeling for Expensive-to-Evaluate Systems
 
 ### Framework
 
 ![Loading Model Overview](img/pipeline.png "Model Overview")
 
-We propose an efficient urban decision-making framework which incorporates a reward model to bridge the gap between the fast RL agent and the slow urban simulation.
-By approximating simulated results with neural networks, our framework allows the RL agent to interact with the reward model in real time without delays while the slow simulation operates offline, addressing the simulation time bottleneck.
-We further introduce adaptive reward modeling that continuously fine-tunes the reward model with the latest simulation data to align with the agent's policy, ensuring accurate reward approximation and avoiding outdated decision evaluation. 
+We propose an efficient online-offline RL framework which incorporates a reward model to bridge the gap between the fast RL agent and the slow evaluation
+By approximating precise evaluation results with neural networks, our framework allows the RL agent to interact with the reward model in real time without delays while the slow evaluation operates offline, addressing the calculation time bottleneck.
+We further introduce adaptive reward modeling that continuously fine-tunes the reward model with the latest evaluated data to align with the agent's policy, ensuring accurate reward approximation and avoiding outdated decision evaluation.
 
 
 # Installation 
@@ -39,13 +39,19 @@ The results are saved in `result/cfg/seed`
 
 ## Overall Performance
 
-We conduct experiments on both community spatial planning and pandemic control scenarios where our model outperforms all the advanced baselines with an average improvement of 12.6\% respectively.
-- community spatial planning
+We conduct experiments on molecular generation, pandemic control and urban spatial planning scenarios where our model outperforms all the advanced baselines with an average improvement of 12.6\% respectively.
+
+- molecular generation
 
 ![Loading Model Overview](img/result1.png "result1")
+
 - pandemic control
 
 ![Loading Model Overview](img/result2.png "result2")
+
+- community spatial planning
+
+![Loading Model Overview](img/result3.png "result1")
 
 ## Reward Model 
 
@@ -61,7 +67,7 @@ As shown in the heatmap, the elements on the diagonal are approximately 0, indic
 ## Asynchronous Training Framework
 
 ![Loading Model Overview](img/AdaReMo.png "AdaReMo")
-With a short fine-tuning period, the samples in the fine-tuning pool $\mathcal{F}$ closely track the exploration subspace $\mathcal{E}$ but may lack sufficient samples due to time-consuming simulations.
+With a short fine-tuning period, the samples in the fine-tuning pool $\mathcal{F}$ closely track the exploration subspace $\mathcal{E}$ but may lack sufficient samples due to time-consuming evaluation.
 On the other hand, a longer fine-tuning interval makes $\mathcal{F}$ denser and more efficient for RM fine-tuning, yet risks lagging RM updates significantly behind policy optimization, leading to misalignment between $\mathcal{O}$ and $\mathcal{E}$ and sub-optimal agent learning based on inaccurate RM feedback.
 Meanwhile, insufficient time may diminish fine-tuning quality, while excessive time may force agents to iterate multiple times with outdated RM, wasting exploration efforts.
 
